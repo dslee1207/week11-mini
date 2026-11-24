@@ -200,77 +200,6 @@
         font-size: 0.82rem;
       }
 
-      .movie-night {
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        overflow: hidden;
-        margin-top: 20px;
-        padding: 22px 26px;
-        border: 1px solid rgb(255 255 255 / 24%);
-        border-radius: 22px;
-        color: #fff;
-        background:
-          radial-gradient(ellipse at 90% 50%, rgb(129 137 238 / 38%), transparent 17rem),
-          linear-gradient(110deg, #172d55, #254a78 72%, #40548c);
-        box-shadow: 0 16px 38px rgb(36 57 99 / 18%);
-        animation: rise-in 650ms 220ms ease-out both;
-      }
-
-      .movie-night::after {
-        position: absolute;
-        top: -60px;
-        right: 90px;
-        width: 180px;
-        aspect-ratio: 1;
-        border: 1px solid rgb(255 255 255 / 13%);
-        border-radius: 50%;
-        box-shadow: 0 0 0 24px rgb(255 255 255 / 5%);
-        content: "";
-        pointer-events: none;
-      }
-
-      .movie-copy,
-      .movie-icon {
-        position: relative;
-        z-index: 1;
-      }
-
-      .movie-label {
-        margin: 0 0 6px;
-        color: #b7d8ff;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.1em;
-      }
-
-      .movie-night h3 {
-        margin: 0;
-        font-size: 1.12rem;
-      }
-
-      .movie-night p:last-child {
-        margin: 7px 0 0;
-        color: #d7e5f7;
-        font-size: 0.92rem;
-        line-height: 1.6;
-      }
-
-      .movie-icon {
-        display: grid;
-        width: 62px;
-        height: 62px;
-        flex: 0 0 auto;
-        place-items: center;
-        border: 1px solid rgb(255 255 255 / 20%);
-        border-radius: 20px;
-        background: rgb(255 255 255 / 12%);
-        font-size: 2rem;
-        transform: rotate(7deg);
-      }
-
       .message-area {
         display: flex;
         flex-wrap: wrap;
@@ -350,19 +279,11 @@
           margin-top: 14px;
         }
 
-        .movie-night {
-          padding: 20px;
-        }
       }
 
       @media (max-width: 430px) {
         .cards {
           grid-template-columns: 1fr;
-        }
-
-        .movie-icon {
-          width: 52px;
-          height: 52px;
         }
       }
 
@@ -431,27 +352,11 @@
               <span class="tag">고기</span>
               <span class="tag">헬스</span>
               <span class="tag">게임</span>
-              <span class="tag">영화</span>
-            </div>
-          </section>
-          <section class="card" aria-labelledby="movie-title">
-            <span class="card-icon" aria-hidden="true">🍿</span>
-            <h3 id="movie-title">영화 감상</h3>
-            <div class="tags">
-              <span class="tag">영화 좋아해요</span>
-              <span class="tag">팝콘 필수!</span>
+              <span class="tag">영화 감상</span>
+              <span class="tag">노래 듣기</span>
             </div>
           </section>
         </div>
-
-        <section class="movie-night" aria-label="영화 취미">
-          <div class="movie-copy">
-            <p class="movie-label">MOVIE NIGHT 🍿</p>
-            <h3>좋아하는 영화와 함께하는 시간</h3>
-            <p>헬스장에서 땀 흘린 뒤, 게임도 하고 영화도 보며 쉬는 걸 좋아해요 🎬</p>
-          </div>
-          <span class="movie-icon" aria-hidden="true">🎥</span>
-        </section>
 
         <section class="message-area" aria-label="응원 메시지">
           <p id="message" aria-live="polite">
