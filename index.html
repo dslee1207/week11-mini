@@ -31,8 +31,9 @@
         min-height: 100vh;
         margin: 0;
         background:
-          radial-gradient(ellipse at 10% 12%, #d2efff 0, transparent 34rem),
-          linear-gradient(145deg, #f5fbff 0%, #e8f5ff 58%, #dff1ff 100%);
+          radial-gradient(ellipse at 8% 10%, #c8edff 0, transparent 34rem),
+          radial-gradient(ellipse at 96% 62%, #e5dcff 0, transparent 30rem),
+          linear-gradient(145deg, #f4fbff 0%, #eaf5ff 55%, #f5f0ff 100%);
       }
 
       button {
@@ -49,28 +50,54 @@
         position: relative;
         overflow: hidden;
         padding: clamp(32px, 7vw, 68px);
-        border: 1px solid rgb(255 255 255 / 85%);
+        border: 1px solid rgb(255 255 255 / 65%);
         border-radius: 32px;
-        background: linear-gradient(135deg, #fff 0%, #eaf7ff 100%);
-        box-shadow: 0 24px 70px rgb(55 117 160 / 12%);
+        background:
+          radial-gradient(ellipse at 88% 18%, rgb(255 255 255 / 26%), transparent 14rem),
+          linear-gradient(125deg, #277db8 0%, #47add0 52%, #8c9bea 100%);
+        box-shadow: 0 24px 70px rgb(55 117 160 / 22%);
+        animation: rise-in 650ms ease-out both;
       }
 
       .hero::after {
         position: absolute;
-        right: -74px;
-        bottom: -132px;
-        width: 310px;
+        top: -110px;
+        right: -68px;
+        width: 330px;
         aspect-ratio: 1;
-        border: 1px solid rgb(92 174 222 / 20%);
+        border: 1px solid rgb(255 255 255 / 24%);
         border-radius: 50%;
         box-shadow:
-          0 0 0 28px rgb(92 174 222 / 7%),
-          0 0 0 58px rgb(92 174 222 / 5%);
+          0 0 0 28px rgb(255 255 255 / 10%),
+          0 0 0 58px rgb(255 255 255 / 7%);
         content: "";
         pointer-events: none;
       }
 
-      .eyebrow,
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 14px;
+        border: 1px solid rgb(255 255 255 / 38%);
+        border-radius: 999px;
+        color: #fff;
+        background: rgb(255 255 255 / 16%);
+        font-size: 0.88rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        backdrop-filter: blur(8px);
+      }
+
+      .eyebrow::before {
+        content: "✨";
+      }
+
       .tag {
         display: inline-flex;
         align-items: center;
@@ -81,65 +108,69 @@
         font-weight: 700;
       }
 
-      .eyebrow {
-        gap: 8px;
-        padding: 9px 14px;
-      }
-
-      .eyebrow::before {
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: #39a5de;
-        content: "";
-      }
-
       h1 {
         margin: 25px 0 12px;
-        color: #123b5a;
+        color: #fff;
         font-size: clamp(2.8rem, 8vw, 5rem);
         letter-spacing: -0.075em;
         line-height: 1.08;
+        text-shadow: 0 5px 24px rgb(17 59 97 / 18%);
       }
 
       .intro {
         max-width: 540px;
         margin: 0;
-        color: #55738a;
+        color: rgb(255 255 255 / 92%);
         font-size: clamp(1rem, 2.5vw, 1.15rem);
         line-height: 1.8;
         word-break: keep-all;
       }
 
       .hero-note {
-        position: relative;
-        z-index: 1;
-        margin: 30px 0 0;
-        color: #34789f;
-        font-size: 0.92rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin: 26px 0 0;
+        padding: 11px 15px;
+        border: 1px solid rgb(255 255 255 / 22%);
+        border-radius: 14px;
+        color: #fff;
+        background: rgb(255 255 255 / 15%);
+        font-size: 0.9rem;
         font-weight: 600;
+        backdrop-filter: blur(8px);
       }
 
       .section-heading {
         margin: 40px 0 16px;
         color: #204866;
-        font-size: 1.18rem;
+        font-size: 1.28rem;
         letter-spacing: -0.03em;
       }
 
       .cards {
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 16px;
       }
 
       .card {
         min-height: 188px;
         padding: 24px;
-        border: 1px solid rgb(255 255 255 / 90%);
-        border-radius: 22px;
-        background: rgb(255 255 255 / 78%);
-        box-shadow: 0 12px 35px rgb(55 117 160 / 7%);
+        border: 1px solid rgb(255 255 255 / 95%);
+        border-radius: 24px;
+        background: rgb(255 255 255 / 76%);
+        box-shadow: 0 12px 35px rgb(55 117 160 / 8%);
+        backdrop-filter: blur(10px);
+        animation: rise-in 650ms ease-out both;
+        transition:
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 42px rgb(55 117 160 / 15%);
       }
 
       .card-icon {
@@ -148,8 +179,8 @@
         height: 42px;
         place-items: center;
         border-radius: 14px;
-        background: #e1f3ff;
-        font-size: 1.25rem;
+        background: linear-gradient(145deg, #d9f3ff, #e8eaff);
+        font-size: 1.35rem;
       }
 
       .card h3 {
@@ -167,6 +198,77 @@
       .tag {
         padding: 7px 10px;
         font-size: 0.82rem;
+      }
+
+      .movie-night {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        overflow: hidden;
+        margin-top: 20px;
+        padding: 22px 26px;
+        border: 1px solid rgb(255 255 255 / 24%);
+        border-radius: 22px;
+        color: #fff;
+        background:
+          radial-gradient(ellipse at 90% 50%, rgb(129 137 238 / 38%), transparent 17rem),
+          linear-gradient(110deg, #172d55, #254a78 72%, #40548c);
+        box-shadow: 0 16px 38px rgb(36 57 99 / 18%);
+        animation: rise-in 650ms 220ms ease-out both;
+      }
+
+      .movie-night::after {
+        position: absolute;
+        top: -60px;
+        right: 90px;
+        width: 180px;
+        aspect-ratio: 1;
+        border: 1px solid rgb(255 255 255 / 13%);
+        border-radius: 50%;
+        box-shadow: 0 0 0 24px rgb(255 255 255 / 5%);
+        content: "";
+        pointer-events: none;
+      }
+
+      .movie-copy,
+      .movie-icon {
+        position: relative;
+        z-index: 1;
+      }
+
+      .movie-label {
+        margin: 0 0 6px;
+        color: #b7d8ff;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+      }
+
+      .movie-night h3 {
+        margin: 0;
+        font-size: 1.12rem;
+      }
+
+      .movie-night p:last-child {
+        margin: 7px 0 0;
+        color: #d7e5f7;
+        font-size: 0.92rem;
+        line-height: 1.6;
+      }
+
+      .movie-icon {
+        display: grid;
+        width: 62px;
+        height: 62px;
+        flex: 0 0 auto;
+        place-items: center;
+        border: 1px solid rgb(255 255 255 / 20%);
+        border-radius: 20px;
+        background: rgb(255 255 255 / 12%);
+        font-size: 2rem;
+        transform: rotate(7deg);
       }
 
       .message-area {
@@ -235,7 +337,7 @@
         }
 
         .cards {
-          grid-template-columns: 1fr;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 12px;
         }
 
@@ -247,6 +349,21 @@
         .card h3 {
           margin-top: 14px;
         }
+
+        .movie-night {
+          padding: 20px;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .movie-icon {
+          width: 52px;
+          height: 52px;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -255,6 +372,20 @@
         *::after {
           scroll-behavior: auto !important;
           transition-duration: 0.01ms !important;
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+        }
+      }
+
+      @keyframes rise-in {
+        from {
+          opacity: 0;
+          transform: translateY(14px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
       }
     </style>
@@ -262,17 +393,19 @@
   <body>
     <div class="page">
       <header class="hero">
-        <span class="eyebrow">ABOUT ME</span>
-        <h1>이동수</h1>
-        <p class="intro">
-          안녕하세요! 경영정보학과에서 공부하며 새로운 가능성을 탐구하고
-          있습니다. 운동과 인공지능에 관심이 많아요.
-        </p>
-        <p class="hero-note">좋아하는 것을 꾸준히 즐기며 성장하는 사람</p>
+        <div class="hero-content">
+          <span class="eyebrow">ABOUT ME</span>
+          <h1>이동수 <span aria-hidden="true">👋</span></h1>
+          <p class="intro">
+            안녕하세요! 경영정보학과에서 공부하며 새로운 가능성을 탐구하고
+            있습니다. 운동과 인공지능에 관심이 많아요.
+          </p>
+          <p class="hero-note">💪 좋아하는 것을 꾸준히 즐기며 성장하는 사람</p>
+        </div>
       </header>
 
       <main>
-        <h2 class="section-heading">저를 소개합니다</h2>
+        <h2 class="section-heading">🧩 저를 소개합니다</h2>
         <div class="cards">
           <section class="card" aria-labelledby="study-title">
             <span class="card-icon" aria-hidden="true">🎓</span>
@@ -298,19 +431,37 @@
               <span class="tag">고기</span>
               <span class="tag">헬스</span>
               <span class="tag">게임</span>
+              <span class="tag">영화</span>
+            </div>
+          </section>
+          <section class="card" aria-labelledby="movie-title">
+            <span class="card-icon" aria-hidden="true">🍿</span>
+            <h3 id="movie-title">영화 감상</h3>
+            <div class="tags">
+              <span class="tag">영화 좋아해요</span>
+              <span class="tag">팝콘 필수!</span>
             </div>
           </section>
         </div>
 
+        <section class="movie-night" aria-label="영화 취미">
+          <div class="movie-copy">
+            <p class="movie-label">MOVIE NIGHT 🍿</p>
+            <h3>좋아하는 영화와 함께하는 시간</h3>
+            <p>헬스장에서 땀 흘린 뒤, 게임도 하고 영화도 보며 쉬는 걸 좋아해요 🎬</p>
+          </div>
+          <span class="movie-icon" aria-hidden="true">🎥</span>
+        </section>
+
         <section class="message-area" aria-label="응원 메시지">
           <p id="message" aria-live="polite">
-            아래 버튼을 눌러 저에게 응원 한마디를 전해 보세요!
+            💌 아래 버튼을 눌러 저에게 응원 한마디를 전해 보세요!
           </p>
-          <button id="cheer-button" type="button">응원 메시지 보내기</button>
+          <button id="cheer-button" type="button">💌 응원 메시지 보내기</button>
         </section>
       </main>
 
-      <footer>이동수의 자기소개 페이지</footer>
+      <footer>Made with 💙 by 이동수</footer>
     </div>
 
     <script>
