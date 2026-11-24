@@ -3,24 +3,324 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>이동수 자기소개</title>
+    <meta
+      name="description"
+      content="경영정보학과 이동수의 관심 분야와 좋아하는 것, 취미를 소개합니다."
+    />
+    <title>이동수 | 자기소개</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family:
+          "Pretendard", "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic",
+          sans-serif;
+        color: #17324d;
+        background: #edf8ff;
+        font-synthesis: none;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-width: 320px;
+        min-height: 100vh;
+        margin: 0;
+        background:
+          radial-gradient(ellipse at 10% 12%, #d2efff 0, transparent 34rem),
+          linear-gradient(145deg, #f5fbff 0%, #e8f5ff 58%, #dff1ff 100%);
+      }
+
+      button {
+        font: inherit;
+      }
+
+      .page {
+        width: min(100% - 40px, 920px);
+        margin-inline: auto;
+        padding-block: 48px 36px;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: clamp(32px, 7vw, 68px);
+        border: 1px solid rgb(255 255 255 / 85%);
+        border-radius: 32px;
+        background: linear-gradient(135deg, #fff 0%, #eaf7ff 100%);
+        box-shadow: 0 24px 70px rgb(55 117 160 / 12%);
+      }
+
+      .hero::after {
+        position: absolute;
+        right: -74px;
+        bottom: -132px;
+        width: 310px;
+        aspect-ratio: 1;
+        border: 1px solid rgb(92 174 222 / 20%);
+        border-radius: 50%;
+        box-shadow:
+          0 0 0 28px rgb(92 174 222 / 7%),
+          0 0 0 58px rgb(92 174 222 / 5%);
+        content: "";
+        pointer-events: none;
+      }
+
+      .eyebrow,
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        border-radius: 999px;
+        color: #2672a5;
+        background: #dff2ff;
+        font-size: 0.88rem;
+        font-weight: 700;
+      }
+
+      .eyebrow {
+        gap: 8px;
+        padding: 9px 14px;
+      }
+
+      .eyebrow::before {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #39a5de;
+        content: "";
+      }
+
+      h1 {
+        margin: 25px 0 12px;
+        color: #123b5a;
+        font-size: clamp(2.8rem, 8vw, 5rem);
+        letter-spacing: -0.075em;
+        line-height: 1.08;
+      }
+
+      .intro {
+        max-width: 540px;
+        margin: 0;
+        color: #55738a;
+        font-size: clamp(1rem, 2.5vw, 1.15rem);
+        line-height: 1.8;
+        word-break: keep-all;
+      }
+
+      .hero-note {
+        position: relative;
+        z-index: 1;
+        margin: 30px 0 0;
+        color: #34789f;
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+
+      .section-heading {
+        margin: 40px 0 16px;
+        color: #204866;
+        font-size: 1.18rem;
+        letter-spacing: -0.03em;
+      }
+
+      .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        min-height: 188px;
+        padding: 24px;
+        border: 1px solid rgb(255 255 255 / 90%);
+        border-radius: 22px;
+        background: rgb(255 255 255 / 78%);
+        box-shadow: 0 12px 35px rgb(55 117 160 / 7%);
+      }
+
+      .card-icon {
+        display: grid;
+        width: 42px;
+        height: 42px;
+        place-items: center;
+        border-radius: 14px;
+        background: #e1f3ff;
+        font-size: 1.25rem;
+      }
+
+      .card h3 {
+        margin: 17px 0 12px;
+        color: #204866;
+        font-size: 1.02rem;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+      }
+
+      .tag {
+        padding: 7px 10px;
+        font-size: 0.82rem;
+      }
+
+      .message-area {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 14px;
+        margin-top: 24px;
+        padding: 20px 22px;
+        border: 1px solid rgb(255 255 255 / 90%);
+        border-radius: 20px;
+        background: rgb(255 255 255 / 65%);
+      }
+
+      .message-area p {
+        flex: 1;
+        min-width: 200px;
+        margin: 0;
+        color: #55738a;
+        line-height: 1.7;
+      }
+
+      .message-area button {
+        min-height: 44px;
+        padding: 0 17px;
+        border: 0;
+        border-radius: 12px;
+        color: #fff;
+        background: #328dc1;
+        cursor: pointer;
+        font-weight: 700;
+        transition:
+          background 160ms ease,
+          transform 160ms ease;
+      }
+
+      .message-area button:hover {
+        transform: translateY(-2px);
+        background: #2377aa;
+      }
+
+      .message-area button:focus-visible {
+        outline: 3px solid #85cfff;
+        outline-offset: 3px;
+      }
+
+      .message-area button:active {
+        transform: translateY(0);
+      }
+
+      footer {
+        padding-top: 28px;
+        color: #7892a6;
+        font-size: 0.85rem;
+        text-align: center;
+      }
+
+      @media (max-width: 680px) {
+        .page {
+          width: min(100% - 28px, 500px);
+          padding-block: 20px 24px;
+        }
+
+        .hero {
+          border-radius: 24px;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+
+        .card {
+          min-height: auto;
+          padding: 20px;
+        }
+
+        .card h3 {
+          margin-top: 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <p>안녕하세요,</p>
-      <h1>이동수입니다.</h1>
-      <p>경영정보학과에서 배우며 운동과 인공지능에 관심을 키우고 있습니다.</p>
-    </header>
+    <div class="page">
+      <header class="hero">
+        <span class="eyebrow">ABOUT ME</span>
+        <h1>이동수</h1>
+        <p class="intro">
+          안녕하세요! 경영정보학과에서 공부하며 새로운 가능성을 탐구하고
+          있습니다. 운동과 인공지능에 관심이 많아요.
+        </p>
+        <p class="hero-note">좋아하는 것을 꾸준히 즐기며 성장하는 사람</p>
+      </header>
 
-    <main>
-      <section>
-        <h2>관심 분야</h2>
-        <p>운동과 인공지능</p>
-      </section>
-      <section>
-        <h2>좋아하는 것</h2>
-        <p>고기, 헬스, 그리고 게임</p>
-      </section>
-    </main>
+      <main>
+        <h2 class="section-heading">저를 소개합니다</h2>
+        <div class="cards">
+          <section class="card" aria-labelledby="study-title">
+            <span class="card-icon" aria-hidden="true">🎓</span>
+            <h3 id="study-title">전공</h3>
+            <div class="tags">
+              <span class="tag">경영정보학과</span>
+            </div>
+          </section>
+
+          <section class="card" aria-labelledby="interest-title">
+            <span class="card-icon" aria-hidden="true">💡</span>
+            <h3 id="interest-title">관심 분야</h3>
+            <div class="tags">
+              <span class="tag">운동</span>
+              <span class="tag">인공지능</span>
+            </div>
+          </section>
+
+          <section class="card" aria-labelledby="favorite-title">
+            <span class="card-icon" aria-hidden="true">✨</span>
+            <h3 id="favorite-title">좋아하는 것과 취미</h3>
+            <div class="tags">
+              <span class="tag">고기</span>
+              <span class="tag">헬스</span>
+              <span class="tag">게임</span>
+            </div>
+          </section>
+        </div>
+
+        <section class="message-area" aria-label="응원 메시지">
+          <p id="message" aria-live="polite">
+            아래 버튼을 눌러 저에게 응원 한마디를 전해 보세요!
+          </p>
+          <button id="cheer-button" type="button">응원 메시지 보내기</button>
+        </section>
+      </main>
+
+      <footer>이동수의 자기소개 페이지</footer>
+    </div>
+
+    <script>
+      const cheerButton = document.querySelector("#cheer-button");
+      const message = document.querySelector("#message");
+
+      cheerButton.addEventListener("click", () => {
+        message.textContent = "응원 고마워요! 오늘도 즐겁게 도전해 볼게요. 💪";
+        cheerButton.textContent = "고마워요!";
+      });
+    </script>
   </body>
 </html>
